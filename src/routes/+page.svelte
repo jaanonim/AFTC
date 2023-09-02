@@ -1,2 +1,19 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+	import CreatePost from '../lib/components/CreatePost.svelte';
+	import Post from '../lib/components/Post.svelte';
+	import type { PageServerData } from './$types';
+	import { page } from '$app/stores';
+	export let data: PageServerData;
+</script>
+
+{#if $page.data.session}
+	<CreatePost />
+{/if}
+{#each data?.posts as post}
+	<Post
+		author={post.author}
+		timestamp={new Date(post.timestamp).toLocaleString()}
+		tags={post.tags}
+		text={post.text}
+	/>
+{/each}
