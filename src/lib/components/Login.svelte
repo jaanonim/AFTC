@@ -20,6 +20,7 @@
 
 <style>
 	.logout {
+		z-index: 1;
 		color: var(--text);
 		background-color: transparent;
 		border: none;
@@ -33,6 +34,7 @@
 	}
 
 	.login {
+		z-index: 1;
 		color: var(--text);
 		background-color: transparent;
 		border: 2px solid var(--text);
